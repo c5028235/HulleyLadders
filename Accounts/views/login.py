@@ -8,8 +8,3 @@ from django.contrib import messages
 class LogInView(LoginView):
     template_name = "accounts/login.html"
     redirect_authenticated_user = True
-    success_url = reverse_lazy('home')
-
-
-    def get_success_url(self):
-        return self.success_url
