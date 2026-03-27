@@ -10824,3 +10824,8 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+.about{
+  font-family:sans-serif;
+  text-align: center;
+}
