@@ -3,6 +3,6 @@ from Products.views.productpage import ProductPage
 from Products.views.categorypage import CategoryPageView
 
 urlpatterns = [
-    path("product/<int:pk>/", ProductPage.as_view(), name = "product"),
-    path("category/<int:pk>/", CategoryPageView.as_view(), name = "category")
+    path("product/<slug:slug>/", ProductPage.as_view(), name="product"),
+    path("category/<slug:slug>/", CategoryPageView.as_view(), name="category")
 ]
