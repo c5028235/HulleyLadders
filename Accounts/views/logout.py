@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from django.contrib.auth.views import LogoutView
+from django.urls import reverse_lazy
 
-# Create your views here.
+
+class CustomLogOutView(LogoutView):
+    template_name = 'accounts/logout.html'
+    success_url = reverse_lazy('logout')
+
+
+    def get_success_url(self):
+        return self.success_url
