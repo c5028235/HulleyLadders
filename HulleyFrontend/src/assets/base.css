@@ -15,7 +15,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #1a1a1d;
-  background-image: url("./images/marble.jpg");
+  background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("./images/marble.jpg");
   /*background: linear-gradient(90deg, #003e74, #005fa3);*/
   color: white;
   padding: 0 50px;
@@ -83,12 +83,19 @@ body {
 .content-area {
   flex: 1; /* This pushes the footer to the bottom */
   padding: 40px;
-  background-color: #f8f9fa;
+  background-color: #f5f5f7;
   /* background-image: url("./images/Elegant\ marble.png"); */
+  background: linear-gradient(rgba(0,0,0,0.3),
+    rgba(0,0,0,0.3)
+  ),url("./images/Elegant\ marble.png");
+
+  background-blend-mode: screen;
   /* Centering Logic */
   display: flex;
   justify-content: center; /* Centers horizontally */
+  position: relative;
 }
+
 
 /* Footer */
 .main-footer {
@@ -96,9 +103,9 @@ body {
     background: #111010;
     padding: 10px 0;
     font-size: 14px;
-    color: #beb6b6;
+    color: #faf9f9;
     box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
-    background-image: url("./images/marble.jpg");
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("./images/marble.jpg");
    
 }
 

@@ -1,4 +1,11 @@
+import HomeProducts from "./homeproducts";
+
 function Home() {
-    return <h1>Welcome to Hulley Ladders</h1>;
+    return (
+        <>
+        <HomeProducts/>
+        </>
+    )
 }
 export default Home;
+
