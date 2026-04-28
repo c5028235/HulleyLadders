@@ -8,9 +8,10 @@ const Navbar = () => {
     return (
         <header className='top-nav'>
             <div className='logo'>
-                <h2 className="logo">Hulley Ladders</h2>
+                <h2 className="logo"><Link to="/">Hulley Ladders</Link></h2>
             </div>
             <nav className='nav-links'>
+
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About Us</Link></li>
@@ -21,10 +22,10 @@ const Navbar = () => {
                         <span className="dropdown-trigger">Products ▾</span>
                         {isProductsOpen && (
                             <ul className="dropdown-menu">
-                                <li><Link to="/about">Library Ladders</Link></li>
-                                <li><Link to="/team">Wooden Ladders</Link></li>
-                                <li><Link to="/company_news">Platform Steps</Link></li>
-                                <li><Link to="/company_info">Swingback Steps</Link></li>
+                                <li><Link to="/#">Library Ladders</Link></li>
+                                <li><Link to="/#">Wooden Ladders</Link></li>
+                                <li><Link to="/#">Platform Steps</Link></li>
+                                <li><Link to="/products/The-Classic-Swingback">Swingback Steps</Link></li>
                             </ul>
                         )}</li>
                     <li><Link to="/team">Meet The Team</Link></li>
@@ -47,6 +48,7 @@ const Navbar = () => {
                             </ul>
                         )}</li>
                     <li><button className='login-btn'>Login</button></li>
+                    <li><button className='login-btn'>Register</button></li>
                 </ul>
             </nav>
         </header>

@@ -7,6 +7,8 @@ const API = axios.create({
 // PRODUCTS
 export const getProducts = () => API.get("products/");
 
+export const getHomeProducts = () => API.get("home/");
+
 export const getProduct = (slug) => API.get(`products/${slug}/`);
 
 // CATEGORIES

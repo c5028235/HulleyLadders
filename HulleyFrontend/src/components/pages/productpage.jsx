@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProduct } from "/src/config/api";
+import "/src/assets/css/productpage.css";
 
 function ProductPage() {
 
@@ -16,19 +17,22 @@ function ProductPage() {
   if (!product) return <p>Loading...</p>;
 
   return (
-    <div style={{ padding: "40px", color: "white" }}>
+    <div className="details-container">
 
-      <h1>{product.name}</h1>
+      <div>
+        <img
+          src={product.image}
+          alt={product.name}
+          style={{ width: "300px" }}
+        />
+      </div>
+      <div className="details-card">
+        <h4>{product.name}</h4>
 
-      <img 
-        src={product.image} 
-        alt={product.name} 
-        style={{ width: "300px" }}
-      />
+        <p>{product.description}</p>
 
-      <p>{product.description}</p>
-
-      <h3>£{product.price}</h3>
+        <h3>£{product.base_price}</h3>
+      </div>
 
     </div>
   );

@@ -4,8 +4,7 @@ from Products.views.categorypage import CategoryPageView
 from Products.views.productpageAPI import ProductPageAPI
 
 urlpatterns = [
-    path("product/<slug:slug>/", ProductPage.as_view(), name="product"),
+    path("products/<slug:slug>/", ProductPage.as_view(), name="product"),
     path("category/<slug:slug>/", CategoryPageView.as_view(), name="category"),
-    path("api/products/<slug:slug>/", ProductPageAPI.as_view(), name="productapi")
-
+    path("api/products/<slug:slug>/", ProductPageAPI.as_view(), name="product")
 ]

@@ -1,0 +1,9 @@
+.details-container{
+    display:flex
+}
+
+.details-card {
+    width: 700px;
+    padding: 20px;
+    text-align: left;
+}

@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "/src/config/api";
+import { getHomeProducts } from "/src/config/api";
 import { Link } from "react-router-dom";
-import "/src/assets/homeproducts.css";
+import "/src/assets/css/homeproducts.css";
 
 function HomeProducts() {
 
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    getProducts()
+    getHomeProducts()
       .then(res => {
         // show only first 6 products
         setProducts(res.data.slice(0, 6));
@@ -26,7 +26,7 @@ function HomeProducts() {
         {products.map(product => (
 
           <Link 
-            to={`/product/${product.slug}`} 
+            to={`/products/${product.slug}`} 
             key={product.id}
             className="card-link"
           >
@@ -37,7 +37,7 @@ function HomeProducts() {
 
               <h4>{product.name}</h4>
 
-              <p className="price">£{product.price}</p>
+              <p className="price">£{product.base_price}</p>
 
             </div>
 

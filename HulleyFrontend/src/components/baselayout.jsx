@@ -1,13 +1,12 @@
-import { Link } from "react-router-dom";
-import '../assets/base.css'
+import '../assets/css/base.css'
 import Navbar from '../components/navbar';
 
 function BaseLayout({ children }) {
     return (
         <div className='app-wrapper'>
             {/* { 1. Top Navigation Header } */}
-            {/* <header className='top-nav'>
-                <div className='logo'>
+            <header className="header">
+                {/* <div className='logo'>
                     <h2 className="logo">Hulley Ladders</h2>
                 </div>
                 <nav className='nav-links'>
@@ -21,8 +20,8 @@ function BaseLayout({ children }) {
                         <li><Link to="/company_info">Company Info</Link></li>
                         <li><button className='login-btn'>Login</button></li>
                     </ul>
-                </nav>
-            </header> */}
+                </nav> */}
+            </header>
 
             <Navbar />
 
