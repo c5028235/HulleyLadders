@@ -4,11 +4,14 @@ from .views.login import LogInView
 from .views.homeview import HomePageView
 from .views.aboutview import AboutView
 from .views.api.homeAPIview import HomePageAPIView
+from Accounts.views.api.registerAPI import RegisterAPIView
+from rest_framework_simplejwt.views import TokenObtainPairView
+
 
 urlpatterns = [
     path('', HomePageView.as_view(), name="home"),
-    path('register/', RegisterView.as_view(), name='register'),
-    path('login/', LogInView.as_view(), name='login'),
     path('about/', AboutView.as_view(), name = 'about'),
-    path('api/home/', HomePageAPIView.as_view(), name="homeAPI")
+    path('api/home/', HomePageAPIView.as_view(), name="homeAPI"),
+    path("register/", RegisterAPIView.as_view(), name="registerAPI"),
+    path("login/", TokenObtainPairView.as_view(), name="login")
 ]

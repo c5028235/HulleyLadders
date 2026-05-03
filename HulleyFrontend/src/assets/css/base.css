@@ -29,7 +29,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: #1a1a1d;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./images/marble.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./src/assets/images/marble.jpg");
     /*background: linear-gradient(90deg, #003e74, #005fa3);*/
     color: white;
     padding: 0 20px;
@@ -103,7 +103,7 @@ body {
     background-color: #f5f5f7;
     /* background-image: url("./images/Elegant\ marble.png"); */
     background: linear-gradient(rgba(0, 0, 0, 0.3),
-            rgba(0, 0, 0, 0.3)), url("./images/Elegant\ marble.png");
+            rgba(0, 0, 0, 0.3)), url("./src/assets/images/Elegant\ marble.png");
 
     background-blend-mode: screen;
     /* Centering Logic */
@@ -122,7 +122,7 @@ body {
     font-size: 14px;
     color: #faf9f9;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./images/marble.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./src/assets/images/marble.jpg");
 
 }
 
