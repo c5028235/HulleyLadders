@@ -1,10 +1,11 @@
 from django.contrib import admin
 from .models.category import Category
 from .models.product import Product
-
+from .models.productvariation import ProductVariation
 # Register your models here.
 admin.site.register(Category)
 admin.site.register(Product)
+admin.site.register(ProductVariation)
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         "name",
