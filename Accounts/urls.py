@@ -7,6 +7,7 @@ from .views.aboutview import AboutView
 from .views.api.homeAPIview import HomePageAPIView
 from Accounts.views.api.registerAPI import RegisterAPIView
 from rest_framework_simplejwt.views import TokenObtainPairView
+from .views.api.Meview import MeView
 
 
 urlpatterns = [
@@ -14,6 +15,7 @@ urlpatterns = [
     path('about/', AboutView.as_view(), name = 'about'),
     path('logout/', LogoutView.as_view(), name = 'logout'),
     path('api/home/', HomePageAPIView.as_view(), name="homeAPI"),
+    path("me/", MeView.as_view(), name = 'me'),
     path("register/", RegisterAPIView.as_view(), name="registerAPI"),
     path("login/", TokenObtainPairView.as_view(), name="login")
 ]

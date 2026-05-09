@@ -4,10 +4,11 @@ import Home from "./components/pages/home";
 import About from "./components/pages/about";
 import Contact from "./components/pages/contact";
 import ProductPage from "./components/pages/productpage";
-import Login from "./pages/Login";
-import Account from "./pages/Account";
-import AdminDashboard from "./admin/AdminDashboard";
-import AdminRoute from "./components/AdminRoute";
+import Login from "./components/pages/login";
+import Register from "./components/pages/register";
+import Account from "./components/pages/Account";
+import AdminDashboard from "/src/admin/AdminDashboard";
+import AdminRoute from "/src/admin/AdminRoute";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/products/:slug" element={<ProductPage/>}/>
             <Route path="/login" element={<Login />} />
+            <Route path = "/register" element={<Register />} />
             <Route path="/account" element={<Account />} />
             <Route
           path="/admin"

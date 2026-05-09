@@ -1,159 +1,250 @@
-/* Layout Wrapper */
+/* =========================
+   RESET / BASE
+========================= */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    /* 1rem = 16px */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #2e2e2e;
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* =========================
+   APP WRAPPER
+========================= */
+
 .app-wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* Ensures the page is at least full screen height */
-    min-width: 100vw;
-    /* Ensures the page is at least full screen width */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.logo {
-    color: white;
-    text-decoration: none;
-}
+/* =========================
+   HEADER (MOBILE FIRST)
+========================= */
 
-/* Header Styling */
 .header {
-    background-color: #1a1a1d;
-    align-items: center;
-    /*background: linear-gradient(90deg, #003e74, #005fa3);*/
-    color: white;
-    height: 155px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: #1a1a1d;
+    height: 10vh;
+    min-height: 4rem;
 }
 
+/* top navigation */
 .top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1a1a1d;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./src/assets/images/marble.jpg");
-    /*background: linear-gradient(90deg, #003e74, #005fa3);*/
-    color: white;
-    padding: 0 20px;
-    gap: 30px;
-    height: 85px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
-.nav-links ul {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-}
+    height: 100%;
+    padding: 0 1rem;
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("/src/assets/images/marble.jpg");
 
-.nav-links a:hover {
-    color: lch(32.02% 20.94 201.89 / 0.515);
-}
-
-body {
-    background: #2e2e2e;
-    background-image: url("/images/marble.jpg");
     background-size: cover;
 }
 
-/* Basic Reset/Layout */
-.nav-links ul {
-    display: flex;
-    list-style: none;
-    align-items: center;
-    gap: 20px;
+.logo {
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
 }
 
-/* Dropdown Container */
-.dropdown {
-    position: relative;
-    cursor: pointer;
+/* =========================
+   NAV LINKS (MOBILE = HIDDEN)
+========================= */
+
+.nav-links {
+    display: none;
 }
 
-/* The actual hidden menu */
-.dropdown-menu {
+/* =========================
+   DROPDOWN (MOBILE MENU)
+========================= */
+
+.mobile-menu {
     position: absolute;
-    top: 100%;
-    /* Sits right below the trigger */
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
-    display: flex;
+    top: 10vh;
+    right: 0;
+
+    width: 14rem;
+    background: white;
+    color: black;
+
+    display: none;
     flex-direction: column;
-    /* Stack sub-links vertically */
-    min-width: 150px;
-    z-index: 999;
+
+    border-radius: 0.4rem;
+    overflow: hidden;
+    z-index: 1000;
 }
 
-.dropdown-menu li {
-    padding: 8px 0;
+.mobile-menu a {
+    padding: 0.8rem 1rem;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #eee;
 }
 
-/* Main Content Area */
+.mobile-menu a:hover {
+    background: #f5f5f5;
+}
+
+.mobile-menu.show {
+    display: flex;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
 .content-area {
     flex: 1;
-    /* This pushes the footer to the bottom */
-    padding: 40px;
-    background-color: #f5f5f7;
-    /* background-image: url("./images/Elegant\ marble.png"); */
-    background: linear-gradient(rgba(0, 0, 0, 0.3),
-            rgba(0, 0, 0, 0.3)), url("./src/assets/images/Elegant\ marble.png");
 
-    background-blend-mode: screen;
-    /* Centering Logic */
+    padding: 2rem 1rem;
+
     display: flex;
     justify-content: center;
-    /* Centers horizontally */
-    position: relative;
+
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("/src/assets/images/Elegant marble.png");
+
+    background-size: cover;
+    background-blend-mode: screen;
 }
 
+/* =========================
+   FOOTER
+========================= */
 
-/* Footer */
 .main-footer {
     text-align: center;
-    background: #111010;
-    padding: 10px 0;
-    font-size: 14px;
-    color: #faf9f9;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./src/assets/images/marble.jpg");
+    padding: 1rem 0;
 
+    font-size: 0.8rem;
+
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("/src/assets/images/marble.jpg");
+
+    background-size: cover;
 }
 
-/*  USER SECTION & LOGIN BUTTON */
+/* =========================
+   BUTTONS
+========================= */
 
 .login-btn {
-    background-color: #3b82f6;
-    /* Modern "Action Blue" */
+    background: #3b82f6;
     color: white;
+
     border: none;
-    padding: 10px 24px;
-    border-radius: 8px;
-    /* Slightly rounder for a modern feel */
-    cursor: pointer;
-    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.5rem;
+
     font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
-    /* Soft blue glow */
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
 }
 
 .login-btn:hover {
-    background-color: #2563eb;
-    /* Deeper blue on hover */
-    transform: translateY(-1px);
-    /* Subtle "lift" effect */
-    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.3);
+    background: #2563eb;
+    transform: translateY(-0.1rem);
 }
 
 .login-btn:active {
-    transform: translateY(0px);
-    /* Sinks back down when clicked */
+    transform: translateY(0);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (min-width: 48rem) {
+    /* 768px */
+
+    .nav-links {
+        display: flex;
+    }
+
+    .nav-links ul {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.95rem;
+    }
+
+    /* Dropdown Container */
+    .dropdown {
+        position: relative;
+        cursor: pointer;
+    }
+
+    /* The actual hidden menu */
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        /* Sits right below the trigger */
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        /* Stack sub-links vertically */
+        min-width: 150px;
+        z-index: 999;
+    }
+
+    .dropdown-menu li {
+        padding: 8px 0;
+    }
+
+    .mobile-menu {
+        display: none !important;
+    }
+
+    .content-area {
+        padding: 3rem;
+    }
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 64rem) {
+    /* 1024px */
+
+    .header {
+        height: 12vh;
+    }
+
+    .content-area {
+        min-width: 62.5rem;
+        margin: 0 auto;
+    }
 }

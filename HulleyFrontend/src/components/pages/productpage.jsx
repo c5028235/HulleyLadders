@@ -19,7 +19,7 @@ function ProductPage() {
   return (
     <div className="details-container">
 
-      <div>
+      <div className="details-image">
         <img
           src={product.image}
           alt={product.name}

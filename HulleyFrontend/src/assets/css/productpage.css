@@ -1,9 +1,87 @@
-.details-container{
-    display:flex
+/* =========================
+   CONTAINER
+========================= */
+
+.details-container {
+  display: flex;
+  flex-direction: column; /* mobile first */
+  gap: 1.5rem;
+  padding: 1.5rem 1rem;
 }
 
+/* =========================
+   CARD
+========================= */
+
 .details-card {
-    width: 700px;
-    padding: 20px;
-    text-align: left;
+  width: 100%; /* full width on mobile */
+  padding: 1.2rem;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 0.6rem;
+
+  text-align: left;
+  color: white;
+}
+
+/* =========================
+   IMAGE (optional but recommended)
+========================= */
+
+.details-image {
+  width: 100%;
+  border-radius: 0.6rem;
+  object-fit: cover;
+}
+
+/* =========================
+   TEXT STYLING
+========================= */
+
+.details-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.details-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (min-width: 48rem) {
+
+  .details-container {
+    padding: 2rem;
+  }
+
+  .details-card h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 64rem) {
+
+  .details-container {
+    flex-direction: row; /* side-by-side */
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 70rem;
+    margin: 0 auto;
+  }
+
+  .details-image {
+    width: 40%;
+  }
+
+  .details-card {
+    width: 60%;
+    padding: 2rem;
+  }
 }
