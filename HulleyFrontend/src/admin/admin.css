@@ -1,0 +1,106 @@
+/* =========================
+   LAYOUT
+========================= */
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+  width: 16rem;
+  background: #111;
+  color: white;
+  padding: 2rem 1rem;
+}
+
+.sidebar-logo {
+  margin-bottom: 2rem;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-links a {
+  color: white;
+  text-decoration: none;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.admin-content {
+  flex: 1;
+  padding: 2rem;
+  background: #f5f5f5;
+  color: black;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+}
+
+.products-table th,
+.products-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 30rem;
+}
+
+.admin-form input,
+.admin-form textarea {
+  padding: 0.8rem;
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 64rem) {
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
