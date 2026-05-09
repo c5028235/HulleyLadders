@@ -14,6 +14,7 @@ urlpatterns = [
     path('', HomePageView.as_view(), name="home"),
     path('about/', AboutView.as_view(), name = 'about'),
     path('logout/', LogoutView.as_view(), name = 'logout'),
+    path('signup/', RegisterView.as_view(), name = 'register'),
     path('api/home/', HomePageAPIView.as_view(), name="homeAPI"),
     path("me/", MeView.as_view(), name = 'me'),
     path("register/", RegisterAPIView.as_view(), name="registerAPI"),

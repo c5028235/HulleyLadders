@@ -54,6 +54,8 @@
 @media (min-width: 48rem) {
 
   .details-container {
+    flex-direction: row; /* side-by-side */
+    align-items: flex-start;
     padding: 2rem;
   }
 
