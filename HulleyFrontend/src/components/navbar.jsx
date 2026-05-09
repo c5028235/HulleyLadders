@@ -57,6 +57,8 @@ const Navbar = () => {
                         )}</li>
                     <li><button className='login-btn'><Link to ="/login">Login</Link></button></li>
                     <li><button className='login-btn'><Link to ="/register">Register</Link></button></li>
+                    <li><button className='login-btn'><Link to ="/logout">Logout</Link></button></li>
+
                 </ul>
             </nav>
 
@@ -98,6 +100,7 @@ const Navbar = () => {
                         )}</li>
                     <li><button className='login-btn'><Link to ="/login">Login</Link></button></li>
                     <li><button className='login-btn'><Link to ="/register">Register</Link></button></li>
+                    <li><button className='logout-btn'><Link to ="/logout">Login</Link></button></li>
                 </ul>
             </div>
         </header>

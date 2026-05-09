@@ -9,6 +9,7 @@ import Register from "./components/pages/register";
 import Account from "./components/pages/Account";
 import AdminDashboard from "/src/admin/AdminDashboard";
 import AdminRoute from "/src/admin/AdminRoute";
+import Logout from "./components/pages/logout";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path = "/register" element={<Register />} />
             <Route path="/account" element={<Account />} />
+            <Route path="/logout" element={<Logout/>} />
             <Route
           path="/admin"
           element={
