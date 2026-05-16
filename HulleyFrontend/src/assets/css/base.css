@@ -52,15 +52,37 @@ body {
     padding: 0 1rem;
 
     background:
-        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url("/src/assets/images/marble.jpg");
+        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("/src/assets/images/foot_marble.png");
 
     background-size: cover;
 }
+.logo-wrapper {
 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+}
 .logo {
     font-size: 1.2rem;
+    font-weight: 700;
     color: white;
+    text-decoration: none;
+    letter-spacing: -0.05rem;
+    transition: opacity 0.2s ease;
+}
+.logo:hover {
+    opacity: 0.85;
+}
+
+.logo a,
+.logo a:visited,
+.logo a:hover,
+.logo a:active,
+.logo a:focus {
+    color: white !important;
     text-decoration: none;
 }
 
@@ -84,8 +106,8 @@ body {
     width: 14rem;
     background: white;
     color: black;
-
-    display: none;
+    cursor: pointer;
+    display: block;
     flex-direction: column;
 
     border-radius: 0.4rem;
@@ -139,8 +161,8 @@ body {
     font-size: 0.8rem;
 
     background:
-        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url("/src/assets/images/marble.jpg");
+        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("/src/assets/images/foot_marble.png");
 
     background-size: cover;
 }
@@ -183,6 +205,7 @@ body {
 
     .nav-links {
         display: flex;
+
     }
 
     .nav-links ul {
@@ -246,5 +269,8 @@ body {
     .content-area {
         min-width: 62.5rem;
         margin: 0 auto;
+    }
+    .mobile-menu{
+        display: none;
     }
 }

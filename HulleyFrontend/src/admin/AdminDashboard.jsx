@@ -1,4 +1,4 @@
-import Sidebar from "./components/Sidebar";
+import Sidebar from "/src/admin/components/sidebar";
 
 function Dashboard() {
 
@@ -17,7 +17,7 @@ function Dashboard() {
             <h3>Total Products</h3>
             <p>24</p>
           </div>
-<div className="stat-card">
+          <div className="stat-card">
             <h3>Total Orders</h3>
             <p>12</p>
           </div>

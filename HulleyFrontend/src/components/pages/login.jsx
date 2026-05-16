@@ -1,60 +1,90 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import API from "/src/config/api";
+import { useAuth } from "../../context/Authcontext";
+
 
 function Login() {
 
-  const navigate = useNavigate();
+  const { login } = useAuth();
+  const [formData, setFormData] = useState({
+    username: "",
+    password: ""
+  });
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const handleChange = (e) => {
 
-  const loginUser = async () => {
-    try {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
-      const res = await API.post("login/", {
-        username,
-        password
-      });
+  const loginUser = async (e) => {
 
-      localStorage.setItem("token", res.data.access);
+    e.preventDefault();
 
-      const profile = await API.get("me/", {
-        headers: {
-          Authorization: `Bearer ${res.data.access}`
-        }
-      });
-
-      if (profile.data.is_staff) {
-        navigate("/admin");
-      } else {
-        navigate("/account");
-      }
-
-    } catch (error) {
-      alert("Invalid login");
-    }
+    login(
+      formData.username,
+      formData.password
+    );
   };
 
   return (
-    <div>
-      <h1>Login</h1>
+    <section className="auth-page">
 
-      <input
-        placeholder="Username"
-        onChange={(e) => setUsername(e.target.value)}
-      />
+      <div className="auth-card">
 
-      <input
-        type="password"
-        placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <h1>Welcome Back</h1>
 
-      <button onClick={loginUser}>
-        Login
-      </button>
-    </div>
+        <p className="auth-subtitle">
+          Login to your account
+        </p>
+
+        <form onSubmit={loginUser}>
+
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+            required
+          />
+
+          <button type="submit">
+            Login
+          </button>
+
+        </form>
+
+        <Link
+          to="/forgot-password"
+          className="forgot-link"
+        >
+          Forgot Password?
+        </Link>
+
+        <p className="auth-switch">
+
+          Don't have an account?
+
+          <Link to="/register">
+            Register
+          </Link>
+
+        </p>
+
+      </div>
+
+    </section>
   );
 }
 
