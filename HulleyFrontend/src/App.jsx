@@ -9,45 +9,57 @@ import Register from "./components/pages/register";
 import Account from "./components/pages/Account";
 import AdminDashboard from "/src/admin/AdminDashboard";
 import AdminRoute from "/src/admin/AdminRoute";
-import Logout from "./components/pages/logout";
+import Logout from "./components/logout";
+import GuestRoute from "./components/guestroute";
+import DashboardLayout from "./admin/dashboardlayout";
+import Products from "./admin/pages/product";
+import AddProduct from "./admin/pages/addproducts";
 
 
 function App() {
 
   return (
-    <Router>
-      <div>
-        <BaseLayout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/products/:slug" element={<ProductPage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/account" element={<Account />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route
-              path="/admin"
-              element={
-                <AdminRoute>
-                  <AdminDashboard />
-                </AdminRoute>
-              } />
-            <Route
-              path="/forgot-password"
-              element={<ForgotPassword />}
-            />
 
-            <Route
-              path="/reset-password/:token"
-              element={<ResetPassword />}
-            />
+    <div>
+      <BaseLayout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/products/:slug" element={<ProductPage />} />
+          <Route path="/login" element={
+            <GuestRoute>
+              <Login />
+            </GuestRoute>} />
+          <Route path="/register" element={
+            <GuestRoute>
+              <Register />
+            </GuestRoute>} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/admin" element={
+            <AdminRoute>
+              <AdminDashboard />
+            </AdminRoute>} />
 
-          </Routes>
-        </BaseLayout>
-      </div>
-    </Router >
+          <Route
+            path="/admin/products"
+            element={
+              <AdminRoute>
+                <Products />
+              </AdminRoute>}
+          />
+
+          <Route
+            path="/admin/add-product"
+            element={<AdminRoute>
+              <AddProduct />
+            </AdminRoute>}
+          />
+        </Routes>
+      </BaseLayout>
+    </div>
+
   )
 }
 

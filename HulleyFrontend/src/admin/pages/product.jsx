@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import API from "../../services/api";
-import Sidebar from "../components/Sidebar";
+import API from "/src/config/api";
+import Sidebar from "/src/admin/components/sidebar";
 import { Link } from "react-router-dom";
 
 function Products() {
@@ -20,7 +20,7 @@ function Products() {
     try {
 
       await API.delete(`products/${id}/`);
-setProducts(products.filter(p => p.id !== id));
+      setProducts(products.filter(p => p.id !== id));
 
     } catch (err) {
       console.log(err);
@@ -29,7 +29,7 @@ setProducts(products.filter(p => p.id !== id));
 
   return (
     <div className="admin-layout">
-<Sidebar />
+      <Sidebar />
 
       <div className="admin-content">
 

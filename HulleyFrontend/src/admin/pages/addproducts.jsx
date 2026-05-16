@@ -1,6 +1,6 @@
 import { useState } from "react";
-import API from "../../services/api";
-import Sidebar from "../components/Sidebar";
+import API from "/src/config/api";
+import Sidebar from "/src/admin/components/sidebar";
 import { useNavigate } from "react-router-dom";
 
 function AddProduct() {
@@ -41,17 +41,17 @@ function AddProduct() {
 
           <input
             placeholder="Name"
-            onChange={e => setForm({...form, name: e.target.value})}
+            onChange={e => setForm({ ...form, name: e.target.value })}
           />
 
           <input
             placeholder="Price"
-            onChange={e => setForm({...form, price: e.target.value})}
+            onChange={e => setForm({ ...form, price: e.target.value })}
           />
 
           <textarea
             placeholder="Description"
-            onChange={e => setForm({...form, description: e.target.value})}
+            onChange={e => setForm({ ...form, description: e.target.value })}
           />
 
           <button type="submit">

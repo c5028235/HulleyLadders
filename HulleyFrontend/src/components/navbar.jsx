@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '/src/context/Authcontext';
 
 const Navbar = () => {
     const [isProductsOpen, setIsProductsOpen] = useState(false);
     const [isCompanyOpen, setIsCompanyOpen] = useState(false);
     const [open, setOpen] = useState(false);
+    const { user, logout } = useAuth();
+
 
     return (
         <header className='top-nav'>
-            <div className='logo'>
+            <div className='logo-wrapper'>
                 <h2 className="logo"><Link to="/">Hulley Ladders</Link></h2>
 
                 <button
@@ -55,9 +58,26 @@ const Navbar = () => {
                                 <li><Link to="/company_news">Quality Control</Link></li>
                             </ul>
                         )}</li>
-                    <li><button className='login-btn'><Link to ="/login">Login</Link></button></li>
-                    <li><button className='login-btn'><Link to ="/register">Register</Link></button></li>
-                    <li><button className='login-btn'><Link to ="/logout">Logout</Link></button></li>
+
+                    {!user ? (
+                        <>
+                            <li><Link to="/login" className='login-btn'>Login</Link></li>
+                            <li><Link to="/register" className='login-btn'>Register</Link></li>
+                        </>
+                    ) : (
+                        <>
+                            {user?.is_staff && (
+                                <li>
+                                    <Link to="/admin">Dashboard</Link>
+                                </li>
+                            )}
+                            <li> Welcome, {user.username}</li>
+                            <li><button onClick={logout} className='login-btn'>Logout</button></li>
+                        </>
+                    )}
+
+
+
 
                 </ul>
             </nav>
@@ -98,9 +118,17 @@ const Navbar = () => {
                                 <li><Link to="/company_news">Quality Control</Link></li>
                             </ul>
                         )}</li>
-                    <li><button className='login-btn'><Link to ="/login">Login</Link></button></li>
-                    <li><button className='login-btn'><Link to ="/register">Register</Link></button></li>
-                    <li><button className='logout-btn'><Link to ="/logout">Login</Link></button></li>
+                    {!user ? (
+                        <>
+                            <li><Link to="/login" className='login-btn'>Login</Link></li>
+                            <li><Link to="/register" className='login-btn'>Register</Link></li>
+                        </>
+                    ) : (
+                        <>
+                            <li> Welcome, {user.username}</li>
+                            <li><button onClick={logout} className='login-btn'>Logout</button></li>
+                        </>
+                    )}
                 </ul>
             </div>
         </header>

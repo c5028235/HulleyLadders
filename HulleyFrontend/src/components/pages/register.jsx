@@ -1,22 +1,51 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "/src/config/api";
+import { Link } from "react-router-dom";
+import "/src/assets/css/authy.css";
 
 function Register() {
 
     const navigate = useNavigate();
 
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [formData, setFormData] = useState({
+        username: "",
+        email: "",
+        password: "",
+        confirmPasword: ""
+    });
+    const [error, setError] = useState("");
 
-    const registerUser = async () => {
+    const handleChange = (e) => {
+
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const registerUser = async (e) => {
+        e.preventDefault();
+
+        setError("");
+
+        // PASSWORD CHECK
+        if (
+            formData.password !==
+            formData.confirmPassword
+        ) {
+
+            setError("Passwords do not match");
+
+            return;
+        }
+
         try {
 
             await API.post("register/", {
-                username,
-                email,
-                password
+                username: formData.username,
+                email: formData.email,
+                password: formData.password
             });
 
             alert("Account created!");
@@ -24,22 +53,81 @@ function Register() {
             navigate("/login");
 
         } catch (err) {
-            alert("Registration failed");
+            console.log(err);
+            setError("Registration failed");
         }
     };
 
     return (
-        <div>
-            <h1>Register</h1>
-            <div className="register">
-            <input placeholder="Username" onChange={e => setUsername(e.target.value)} />
-            <input placeholder="Email" onChange={e => setEmail(e.target.value)} />
-            <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+        <section className="auth-page">
+
+            <div className="auth-card">
+
+                <h1>Create Account</h1>
+
+                <p className="auth-subtitle">
+                    Join Hulley Ladders
+                </p>
+
+                {error && (
+                    <p className="auth-error">
+                        {error}
+                    </p>
+                )}
+
+                <form onSubmit={registerUser}>
+
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Username"
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <input
+                        type="password"
+                        name="confirmPassword"
+                        placeholder="Confirm Password"
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <button type="submit">
+                        Register
+                    </button>
+
+                </form>
+
+                <p className="auth-switch">
+
+                    Already have an account?
+
+                    <Link to="/login">
+                        Login
+                    </Link>
+
+                </p>
+
             </div>
-            <button onClick={registerUser}>
-                Register
-            </button>
-        </div>
+
+        </section>
     );
 }
 

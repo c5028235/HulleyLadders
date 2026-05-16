@@ -12,7 +12,7 @@ from .views.api.logoutAPI import LogoutAPIView
 
 
 urlpatterns = [
-    path('', HomePageView.as_view(), name="home"),
+    path('', HomePageView.as_view(), name='home'),
     path('about/', AboutView.as_view(), name = 'about'),
     path('logout/', LogoutView.as_view(), name = 'logout'),
     path('signup/', RegisterView.as_view(), name = 'register'),
