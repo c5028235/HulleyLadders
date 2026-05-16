@@ -23,5 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include("Accounts.urls")),
     path('', include("Accounts.urls")),
-    path('', include("Products.urls"))
+    path('', include("Products.urls")),
+    path("api/password_reset/",
+    include("django_rest_passwordreset.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

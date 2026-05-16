@@ -22,19 +22,28 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/products/:slug" element={<ProductPage/>}/>
+            <Route path="/products/:slug" element={<ProductPage />} />
             <Route path="/login" element={<Login />} />
-            <Route path = "/register" element={<Register />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/account" element={<Account />} />
-            <Route path="/logout" element={<Logout/>} />
+            <Route path="/logout" element={<Logout />} />
             <Route
-          path="/admin"
-          element={
-            <AdminRoute>
-              <AdminDashboard />
-            </AdminRoute>
-          }
-        />
+              path="/admin"
+              element={
+                <AdminRoute>
+                  <AdminDashboard />
+                </AdminRoute>
+              } />
+            <Route
+              path="/forgot-password"
+              element={<ForgotPassword />}
+            />
+
+            <Route
+              path="/reset-password/:token"
+              element={<ResetPassword />}
+            />
+
           </Routes>
         </BaseLayout>
       </div>
